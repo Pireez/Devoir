@@ -20,3 +20,6 @@ botao = Button(janela,text="Ok")
 botao.grid(column=0,row=1)
 janela.mainloop()
 
+#teste
+
+
