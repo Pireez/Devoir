@@ -1,24 +1,7 @@
 
-from tkinter import *
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#janela = Tk()
+#app.tk = Tk()
 # Criação dp tamanho da janela
 #janela.geometry("400x400") 
 # Deixando ela limitada ao tamanho Altura e Largura
