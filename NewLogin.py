@@ -34,8 +34,7 @@ checkbox.pack(padx=10,pady=5)
 login = customtkinter.CTkButton(janela,text="Login",command=clique)
 login.pack(padx=10,pady=15)
 
-
-cadastro = customtkinter.CTkButton(janela,text="Não tenho login",command=lambda: [fechalogin(),telacadastro()])
+cadastro = customtkinter.CTkButton(janela,text="Não tenho login",command=lambda: [telacadastro(),fechalogin()])
 cadastro.pack(padx=1,pady=1)
 naosei = customtkinter.CTkLabel(janela,text="Esqueci minha senha",width=20,height=20, text_color="blue",cursor="hand2")
 naosei.pack(padx=1,pady=2)

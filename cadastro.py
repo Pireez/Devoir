@@ -1,8 +1,10 @@
 from tkinter import *
 import mysql.connector
 import customtkinter
-cadastro = customtkinter.CTk()
 
+
+
+cadastro = customtkinter.CTk()
 def telacadastro():
     
     cadastro.geometry("400x350")
