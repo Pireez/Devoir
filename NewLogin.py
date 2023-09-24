@@ -5,9 +5,9 @@ import customtkinter
 customtkinter.set_appearance_mode("Dark")
 
 janela = customtkinter.CTk()
-janela.geometry("600x350")
-janela.maxsize(width=600,height=350)
-janela.minsize(width=600,height=350)
+janela.geometry("500x400")
+janela.maxsize(width=500,height=400)
+janela.minsize(width=500,height=400)
 
 texto = customtkinter.CTkLabel(janela,font=("Arial",20,'bold'), text="DEVOIR",bg_color="black",width=600,corner_radius=8)
 texto.pack(padx=10,pady=10)
@@ -33,7 +33,7 @@ login.pack(padx=10,pady=15)
 
 cadastro = customtkinter.CTkButton(janela,text="Não tenho login")
 cadastro.pack(padx=1,pady=1)
-naosei = customtkinter.CTkLabel(janela,text="Esqueci minha senha",width=20,height=20, cursor="hand2")
+naosei = customtkinter.CTkLabel(janela,text="Esqueci minha senha",width=20,height=20, text_color="blue",cursor="hand2")
 naosei.pack(padx=1,pady=2)
 
 janela.mainloop()
