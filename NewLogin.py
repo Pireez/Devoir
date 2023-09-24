@@ -1,8 +1,6 @@
 from tkinter import *
 import mysql.connector
 
-
-
 app = Tk()
 
 class Aplicativo():
@@ -10,6 +8,7 @@ class Aplicativo():
         self.app = app
         self.Tela()
         self.CaixaTexto()
+        self.funcaoInsert()
         app.mainloop()
 
     def Tela (self):
@@ -18,15 +17,13 @@ class Aplicativo():
 
     def CaixaTexto (self):
 
-        self.e1 = Entry(self.app,font="arial",width=20,relief=SOLID,)
+        self.e1 = Entry(self.app,font="arial",width=20,relief=SOLID)
         self.e1.grid(row=0,column=1)
         self.e2 = Entry(self.app, font="arial",width=20,relief=SOLID)
         self.e2.grid(row=1,column=1)
-        self.btn = Button(self.app,text="Cadastrar",width=10,command=funcaoInsert())   
+        self.btn = Button(self.app,text="Cadastrar",width=10,command=self.funcaoInsert())   
         self.btn.grid(row=3,column=1)
-
-class funcaoInsert():
-    def funcInsert(self):
+    def funcaoInsert(self):
         self.con = mysql.connector.connect(host='localhost', database='devoir', user='root', password='elco478780')
         self.cursor = self.con.cursor()
     
@@ -44,10 +41,6 @@ class funcaoInsert():
             self.con.close()
             print("Registro inserido com sucesso!")
         except mysql.connector.Error as e:
-            print(f"Erro ao inserir registro: {e}")
-
-        
-
-      
+            print(f"Erro ao inserir registro: {e}")          
 
 Aplicativo()
