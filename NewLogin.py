@@ -3,19 +3,28 @@ import mysql.connector
 import customtkinter
 from cadastro import telacadastro
 
+
 customtkinter.set_appearance_mode("Dark")
-
 janela = customtkinter.CTk()
-janela.geometry("500x400")
-janela.maxsize(width=500,height=400)
-janela.minsize(width=500,height=400)
 
-texto = customtkinter.CTkLabel(janela,font=("Arial",20,'bold'), text="DEVOIR",bg_color="black",width=600,corner_radius=8)
+def dimensaojanela():
+    # dimensoes da janela
+    largura = 600
+    altura = 400
+    #resolucao do nosso sistema
+    largura_screen = janela.winfo_screenwidth()
+    altura_screen = janela.winfo_screenheight()
+    # posicao da janela
+    posx = largura_screen/2 - largura/2
+    posy = altura_screen/2 - altura/2
+    #definir a geomatry
+    janela.geometry("%dx%d+%d+%d" % (largura,altura,posx,posy))
+
+dimensaojanela()
+texto = customtkinter.CTkLabel(janela,font=("Arial",20,'bold'), text="DEVOIR",bg_color="black",width=500)
 texto.pack(padx=10,pady=10)
-
 texto = customtkinter.CTkLabel(janela,font=("Arial",15), text="Fazer Login")
 texto.pack(padx=10,pady=10)
-
 
 def clique():
     print("Login realizado com sucesso")
@@ -34,7 +43,8 @@ checkbox.pack(padx=10,pady=5)
 login = customtkinter.CTkButton(janela,text="Login",command=clique)
 login.pack(padx=10,pady=15)
 
-cadastro = customtkinter.CTkButton(janela,text="Não tenho login",command=lambda: [telacadastro(),fechalogin()])
+
+cadastro = customtkinter.CTkButton(janela,text="Não tenho login",command=lambda:[fechalogin(),telacadastro()])
 cadastro.pack(padx=1,pady=1)
 naosei = customtkinter.CTkLabel(janela,text="Esqueci minha senha",width=20,height=20, text_color="blue",cursor="hand2")
 naosei.pack(padx=1,pady=2)
