@@ -1,15 +1,15 @@
+
 from tkinter import *
 import mysql.connector
 import customtkinter
-from cadastro import telacadastro
-
 
 customtkinter.set_appearance_mode("Dark")
+
 janela = customtkinter.CTk()
 
 def dimensaojanela():
     # dimensoes da janela
-    largura = 600
+    largura = 400
     altura = 400
     #resolucao do nosso sistema
     largura_screen = janela.winfo_screenwidth()
@@ -19,35 +19,32 @@ def dimensaojanela():
     posy = altura_screen/2 - altura/2
     #definir a geomatry
     janela.geometry("%dx%d+%d+%d" % (largura,altura,posx,posy))
-
-dimensaojanela()
-texto = customtkinter.CTkLabel(janela,font=("Arial",20,'bold'), text="DEVOIR",bg_color="black",width=500)
-texto.pack(padx=10,pady=10)
-texto = customtkinter.CTkLabel(janela,font=("Arial",15), text="Fazer Login")
-texto.pack(padx=10,pady=10)
-
-def clique():
-    print("Login realizado com sucesso")
+    janela.minsize(largura,altura)
+    janela.maxsize(largura,altura)
 
 def fechalogin():
     janela.destroy()
 
+def telacadastro():
+    import cadastro
+
+dimensaojanela()
+texto = customtkinter.CTkLabel(janela,font=("Arial",20,'bold'), text="DEVOIR",bg_color="blue",width=400)
+texto.pack(padx=10,pady=10)
+texto = customtkinter.CTkLabel(janela,font=("Arial",20), text="Fazer Login")
+texto.pack(padx=10,pady=10)   
 usuario = customtkinter.CTkEntry(janela,width=200, placeholder_text="usuario")
 usuario.pack(padx=10,pady=10)
 senha = customtkinter.CTkEntry(janela,width=200,placeholder_text="senha",show="*")
 senha.pack(padx=10,pady=10)
-
-checkbox = customtkinter.CTkCheckBox(janela, text="Salvar Login", font=("Arial",10))
-checkbox.pack(padx=10,pady=5)
-
-login = customtkinter.CTkButton(janela,text="Login",command=clique)
-login.pack(padx=10,pady=15)
-
-
-cadastro = customtkinter.CTkButton(janela,text="Não tenho login",command=lambda:[fechalogin(),telacadastro()])
-cadastro.pack(padx=1,pady=1)
+checkbox = customtkinter.CTkCheckBox(janela, text="Salvar Login", font=("Arial",10),checkbox_width=20,checkbox_height=20)
+checkbox.pack(padx=10,pady=0)
+login = customtkinter.CTkButton(janela,text="Entrar",width=150)
+login.pack(padx=10,pady=10)
+cadastro = customtkinter.CTkButton(janela,text="Não tenho login",command=lambda:[telacadastro()][fechalogin()])
+cadastro.pack(padx=1,pady=10)
 naosei = customtkinter.CTkLabel(janela,text="Esqueci minha senha",width=20,height=20, text_color="blue",cursor="hand2")
-naosei.pack(padx=1,pady=2)
+naosei.pack(padx=1,pady=0)
 
 janela.mainloop()
 

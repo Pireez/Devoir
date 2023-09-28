@@ -72,3 +72,31 @@
 # Application()
 
 
+
+
+from tkinter import *
+import mysql.connector
+import customtkinter
+
+        
+def janelalogin():
+    janela = customtkinter.CTk()
+    largura = 600
+    altura = 400
+    #resolucao do nosso sistema
+    largura_screen = janela.winfo_screenwidth()
+    altura_screen = janela.winfo_screenheight()
+    # posicao da janela
+    posx = largura_screen/2 - largura/2
+    posy = altura_screen/2 - altura/2
+    #definir a geomatry
+    janela.geometry("%dx%d+%d+%d" % (largura,altura,posx,posy))
+    janela.mainloop()
+janelalogin()
+
+
+
+
+
+
+
