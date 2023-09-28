@@ -129,9 +129,16 @@ confirma_senha_entry = customtkinter.CTkEntry(janela,
 confirma_senha_entry.place(x=30,y=370)
 
 
-
-
-
+def funcaoErro():
+    nome = entry_nome.get()
+    cpf = entry_cpf.get()
+    telefone = entry_telefone.get()
+    data_nascimento = entry_data_nascimento.get()
+    email = entry_email.get()
+    if len(nome) and len(cpf) == 0:     
+        print('Falta inserir o nome')
+    else: 
+        print("Não está vazio")
 
 def funcaoDelete():
     entry_nome.delete(0,END)
@@ -154,7 +161,7 @@ btn_cadastrar = customtkinter.CTkButton(janela,width=widget_padrao,
                                         height=50,
                                         font=("Arial",15,"bold"),
                                         text="CADASTRAR",
-                                        hover_color=cor_vermelho,command=funcaoDelete).place(x=30,y=420)
+                                        hover_color=cor_vermelho,command=funcaoErro).place(x=30,y=420)
 
 janela.mainloop()
 
