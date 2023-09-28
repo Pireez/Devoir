@@ -3,6 +3,11 @@ from tkinter import *
 import mysql.connector
 import customtkinter
 
+
+cor_vermelho = "#cd5c5c"
+cor_branca = "#ffffff"
+cor_azulclaro = "#1e90ff"
+
 customtkinter.set_appearance_mode("Dark")
 
 janela = customtkinter.CTk()
@@ -27,6 +32,7 @@ def fechalogin():
     import cadastro_direcionamento 
     
 
+
 dimensaojanela()
 texto = customtkinter.CTkLabel(janela,font=("Arial",20,'bold'), text="DEVOIR",fg_color="#cd5c5c",width=400)
 texto.pack(padx=10,pady=10)
@@ -40,9 +46,9 @@ checkbox = customtkinter.CTkCheckBox(janela, text="Salvar Login", font=("Arial",
 checkbox.pack(padx=10,pady=0)
 login = customtkinter.CTkButton(janela,text="Entrar",width=150,fg_color="#cd5c5c")
 login.pack(padx=10,pady=10)
-cadastro = customtkinter.CTkButton(janela,text="Não tenho login",command=fechalogin)
+cadastro = customtkinter.CTkButton(janela,text="Não tenho login",hover_color=cor_vermelho,command=fechalogin)
 cadastro.pack(padx=1,pady=10)
-naosei = customtkinter.CTkLabel(janela,text="Esqueci minha senha",width=20,height=20, text_color="blue",cursor="hand2")
+naosei = customtkinter.CTkLabel(janela,text="Esqueci minha senha",width=20,height=20, text_color=cor_azulclaro,cursor="hand2")
 naosei.pack(padx=1,pady=0)
 
 janela.mainloop()

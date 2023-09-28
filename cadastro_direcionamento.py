@@ -4,6 +4,7 @@ import customtkinter
 
 largura_btn = 460 
 altura_btn = 200
+cor_vermelho = "#cd5c5c"
 
 janela = customtkinter.CTk()
 
@@ -34,12 +35,14 @@ btn_nao_comerciante=customtkinter.CTkButton(janela,
                                             height=altura_btn,
                                             text="Não comerciante",
                                             font=("Arial",20,'bold'),
-                                            command=tela_nao_comerciante).place(x=20,y=40)
+                                            command=tela_nao_comerciante,
+                                            hover_color=cor_vermelho).place(x=20,y=40)
 
 btn_sou_comerciante=customtkinter.CTkButton(janela,
                                             width=largura_btn,
                                             height=altura_btn,
                                             text="Sou comerciante",
-                                            font=("Arial",20,'bold')).place(x=20,y=270)
+                                            font=("Arial",20,'bold'),
+                                            hover_color=cor_vermelho).place(x=20,y=270)
 
 janela.mainloop()
