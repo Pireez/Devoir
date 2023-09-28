@@ -38,12 +38,17 @@ def dimensaojanela():
     janela.minsize(largura,altura)
     janela.maxsize(largura,altura)
 
-def cxFrame():
-    Frame1 = customtkinter.CTkFrame(janela,width=480,height=30,fg_color=cor_azulescuro).place(x=distancia_x_tela,y=distancia_y_tela)
-
 
 dimensaojanela()
-texto_cadastro = customtkinter.CTkLabel(cxFrame(),font=("Arial",22,'bold'), text="Cadastro",fg_color=cor_azulescuro,text_color=cor_branca).place(x=210,y=20)
+janela.title("CADASTRO")
+texto_cadastro = customtkinter.CTkLabel(janela,font=("Calibri",25,'bold'),
+                                        text="Cadastro",
+                                        text_color_disabled=None,
+                                        width=500,
+                                        text_color=cor_branca).place(x=0,y=20)
+
+label_senha = customtkinter.CTkLabel(janela,text="Dados Gerais",font=("Arial",15,'bold'),width=0).place(x=35,y=65)
+frame2 = customtkinter.CTkFrame(janela,width=widget_padrao,height=5,fg_color=cor_vermelho).place(x=30,y=90)
 
 entry_nome = customtkinter.CTkEntry(janela, 
                               placeholder_text="Nome e Sobrenome",
@@ -55,25 +60,33 @@ entry_cpf = customtkinter.CTkEntry(janela,
                              placeholder_text="CPF: XXX.XXX.XXX-XX",
                              width=widget_padrao,
                              height=height_padrao)
-entry_cpf.place(x=30,y=150)
+entry_cpf.place(x=30,y=140)
 
 entry_telefone = customtkinter.CTkEntry(janela, 
                                   placeholder_text="Telefone: XX XXXXX-XXXX",
                                   width=widget_padrao,
                                   height=height_padrao)
-entry_telefone.place(x=30,y=200)
+entry_telefone.place(x=30,y=180)
 
 entry_data_nascimento =  customtkinter.CTkEntry(janela, 
                                          placeholder_text="Nascimento: DD/MM/AAAA",
                                          width=widget_padrao,
                                          height=height_padrao)
-entry_data_nascimento.place(x=30,y=250)
+entry_data_nascimento.place(x=30,y=220)
 
 entry_email = customtkinter.CTkEntry(janela, 
                                placeholder_text="Seu E-mail",
                                width=widget_padrao,
                                height=height_padrao)
-entry_email.place(x=30,y=300)
+entry_email.place(x=30,y=260)
+
+label_senha = customtkinter.CTkLabel(janela,text="Senha",width=0,font=("Arial",15,'bold')).place(x=35,y=300)
+frame3 = customtkinter.CTkFrame(janela,width=widget_padrao,height=5,fg_color=cor_vermelho).place(x=30,y=325)
+
+senha_entry = customtkinter.CTkEntry(janela,placeholder_text="Senha",width=widget_padrao)
+senha_entry.place(x=30,y=335)
+confirma_senha_entry = customtkinter.CTkEntry(janela,placeholder_text="Confirmar Senha",width=widget_padrao)
+confirma_senha_entry.place(x=30,y=370)
 
 def insert():
     nome = entry_nome.get()
@@ -86,9 +99,10 @@ def insert():
     print("Registro salvo")
 
 btn_cadastrar = customtkinter.CTkButton(janela,width=widget_padrao,
-                                        font=("Arial",14,"bold"),
+                                        height=50,
+                                        font=("Arial",15,"bold"),
                                         text="CADASTRAR",
-                                        hover_color=cor_vermelho,command=insert).place(x=30,y=350)
+                                        hover_color=cor_vermelho,command=insert).place(x=30,y=420)
 
 janela.mainloop()
 
