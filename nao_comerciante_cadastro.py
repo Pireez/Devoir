@@ -135,10 +135,19 @@ def funcaoErro():
     telefone = entry_telefone.get()
     data_nascimento = entry_data_nascimento.get()
     email = entry_email.get()
-    if len(nome) and len(cpf) == 0:     
-        print('Falta inserir o nome')
+    
+    if len(nome) == 0:   
+        messagebox.showwarning("Menssagem de aviso", "O campo Nome está vazio")
+    elif len(cpf) == 0:
+        messagebox.showwarning("Menssagem de aviso", "O campo CPF está vazio")
+    elif len(telefone) == 0:
+        messagebox.showwarning("Menssagem de aviso", "O campo telefone está vazio")
+    elif len(data_nascimento) == 0:
+        messagebox.showwarning("Menssagem de aviso", "O campo Data nascimento está vazio")
+    elif len(email) == 0:
+        messagebox.showwarning("Menssagem de aviso", "O campo Email está vazio")
     else: 
-        print("Não está vazio")
+        funcaoDelete()
 
 def funcaoDelete():
     entry_nome.delete(0,END)
