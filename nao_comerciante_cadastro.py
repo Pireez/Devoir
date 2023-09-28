@@ -148,6 +148,17 @@ def funcaoErro():
         messagebox.showwarning("Menssagem de aviso", "O campo Email está vazio")
     else: 
         funcaoDelete()
+        
+def funcaoSenha():
+    senha = senha_entry.get()
+    senha_confirmacao = confirma_senha_entry.get()
+
+    if len(senha) == 0:
+        messagebox.showwarning("Menssagem de aviso", "O campo Senha está vazio")
+    elif senha != senha_confirmacao:
+        messagebox.showwarning("Menssagem de aviso", "As senhas não correspondem")
+    else: 
+        insert()
 
 def funcaoDelete():
     entry_nome.delete(0,END)
