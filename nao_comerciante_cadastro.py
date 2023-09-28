@@ -16,13 +16,8 @@ customtkinter.set_appearance_mode("Dark")
 
 janela = customtkinter.CTk()
 
-# def cnxBanco():
-#     con = mysql.connector.connect(host='localhost', database='devoir',user='root',password='elco478780') # adicionando as conexções com o banco de dados
-#     cursor = con.cursor()
-#     cursor.commit()
-#     cursor.close()       
-#     con.close()
-#     telasucesso()
+con = mysql.connector.connect(host='localhost', database='devoir',user='root',password='elco478780') # adicionando as conexções com o banco de dados
+cursor = con.cursor()
 
 def telasucesso():
     dimensaojanela()
@@ -53,36 +48,47 @@ texto_cadastro = customtkinter.CTkLabel(cxFrame(),font=("Arial",22,'bold'), text
 entry_nome = customtkinter.CTkEntry(janela, 
                               placeholder_text="Nome e Sobrenome",
                               width=widget_padrao,
-                              height=height_padrao).place(x=30,y=100)
+                              height=height_padrao)
+entry_nome.place(x=30,y=100)
 
 entry_cpf = customtkinter.CTkEntry(janela, 
                              placeholder_text="CPF: XXX.XXX.XXX-XX",
                              width=widget_padrao,
-                             height=height_padrao).place(x=30,y=150)
+                             height=height_padrao)
+entry_cpf.place(x=30,y=150)
 
 entry_telefone = customtkinter.CTkEntry(janela, 
                                   placeholder_text="Telefone: XX XXXXX-XXXX",
                                   width=widget_padrao,
-                                  height=height_padrao).place(x=30,y=200)
+                                  height=height_padrao)
+entry_telefone.place(x=30,y=200)
 
 entry_data_nascimento =  customtkinter.CTkEntry(janela, 
                                          placeholder_text="Nascimento: DD/MM/AAAA",
                                          width=widget_padrao,
-                                         height=height_padrao).place(x=30,y=250)
+                                         height=height_padrao)
+entry_data_nascimento.place(x=30,y=250)
 
 entry_email = customtkinter.CTkEntry(janela, 
                                placeholder_text="Seu E-mail",
                                width=widget_padrao,
-                               height=height_padrao).place(x=30,y=300)
+                               height=height_padrao)
+entry_email.place(x=30,y=300)
 
 def insert():
     nome = entry_nome.get()
+    cpf = entry_cpf.get()
+    telefone = entry_telefone.get()
+    data_nascimento = entry_data_nascimento.get()
+    email = entry_email.get()
+    cursor.execute("INSERT INTO tblcomerciante (nome,cpf,telefone,data_nascimento,email) VALUES ('"+nome+"','"+cpf+"','"+telefone+"','"+data_nascimento+"','"+email+"')")
+    con.commit()
+    print("Registro salvo")
 
 btn_cadastrar = customtkinter.CTkButton(janela,width=widget_padrao,
                                         font=("Arial",14,"bold"),
                                         text="CADASTRAR",
-                                        hover_color=cor_vermelho).place(x=30,y=350)
-
+                                        hover_color=cor_vermelho,command=insert).place(x=30,y=350)
 
 janela.mainloop()
 
