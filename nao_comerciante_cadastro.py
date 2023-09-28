@@ -62,6 +62,8 @@ email = customtkinter.CTkEntry(janela,
                                width=widget_padrao,
                                height=height_padrao).place(x=30,y=300)
 
-btn_cadastrar = customtkinter.CTkButton(janela,width=widget_padrao,font=("Arial",14,"bold"),text="CADASTRAR").place(x=30,y=400)
+btn_cadastrar = customtkinter.CTkButton(janela,width=widget_padrao,
+                                        font=("Arial",14,"bold"),
+                                        text="CADASTRAR").place(x=30,y=400)
 
 janela.mainloop()

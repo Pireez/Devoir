@@ -24,9 +24,8 @@ def dimensaojanela():
 
 def fechalogin():
     janela.destroy()
-
-def telacadastro():
-    import nao_comerciante_cadastro
+    import cadastro_direcionamento 
+    
 
 dimensaojanela()
 texto = customtkinter.CTkLabel(janela,font=("Arial",20,'bold'), text="DEVOIR",fg_color="#cd5c5c",width=400)
@@ -41,7 +40,7 @@ checkbox = customtkinter.CTkCheckBox(janela, text="Salvar Login", font=("Arial",
 checkbox.pack(padx=10,pady=0)
 login = customtkinter.CTkButton(janela,text="Entrar",width=150,fg_color="#cd5c5c")
 login.pack(padx=10,pady=10)
-cadastro = customtkinter.CTkButton(janela,text="Não tenho login",command=lambda:[fechalogin()][telacadastro()])
+cadastro = customtkinter.CTkButton(janela,text="Não tenho login",command=fechalogin)
 cadastro.pack(padx=1,pady=10)
 naosei = customtkinter.CTkLabel(janela,text="Esqueci minha senha",width=20,height=20, text_color="blue",cursor="hand2")
 naosei.pack(padx=1,pady=0)
